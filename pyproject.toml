@@ -1,0 +1,25 @@
+[project]
+name = "mcpfp"
+version = "0.1.0"
+description = "Servidor MCP educativo para evaluacion de vulnerabilidades (defensivo, sin explotacion)"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "jzuniga" }]
+dependencies = [
+    "mcp[cli]>=2.0.0",
+    "python-dotenv>=1.0.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0.0"]
+
+[project.scripts]
+mcpfp = "mcpfp.server:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/mcpfp"]
